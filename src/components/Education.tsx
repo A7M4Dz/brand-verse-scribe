@@ -18,45 +18,32 @@ interface CertificationItem {
 
 const educationData: EducationItem[] = [
   {
-    year: "2016",
-    institution: "Design University",
-    degree: "Master of Fine Arts",
-    field: "Interaction Design",
-    institutionInitials: "DU"
-  },
-  {
-    year: "2014",
-    institution: "State University",
-    degree: "Bachelor of Science",
-    field: "Computer Science",
-    institutionInitials: "SU"
+    year: "2024",
+    institution: "King Saud University",
+    degree: "Bachelor of Business Administration (BBA)",
+    field: "Human Resources Management",
+    institutionInitials: "KSU"
   }
 ];
 
 const certificationData: CertificationItem[] = [
   {
-    name: "Google UX Design Professional Certificate",
-    issuer: "Google/Coursera",
+    name: "HR Analytics & Automation",
+    issuer: "Professional Development",
+    date: "2024",
+    issuerInitials: "PD"
+  },
+  {
+    name: "Talent Development Specialist",
+    issuer: "HR Institute",
+    date: "2024",
+    issuerInitials: "HRI"
+  },
+  {
+    name: "Workforce Planning & Strategy",
+    issuer: "Business Academy",
     date: "2023",
-    issuerInitials: "G"
-  },
-  {
-    name: "Design Systems Certification",
-    issuer: "Design+Research",
-    date: "2022",
-    issuerInitials: "D+"
-  },
-  {
-    name: "Figma Advanced Prototyping",
-    issuer: "Figma Academy",
-    date: "2022",
-    issuerInitials: "F"
-  },
-  {
-    name: "Human-Computer Interaction",
-    issuer: "Stanford Online",
-    date: "2021",
-    issuerInitials: "S"
+    issuerInitials: "BA"
   }
 ];
 

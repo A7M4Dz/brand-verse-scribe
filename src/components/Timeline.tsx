@@ -7,7 +7,7 @@ interface TimelineItem {
   title: string;
   achievement: string;
   isCurrent?: boolean;
-  companyInitials: string;
+  logoUrl: string;
 }
 
 const timelineData: TimelineItem[] = [
@@ -17,20 +17,20 @@ const timelineData: TimelineItem[] = [
     title: "Talent Development Officer",
     achievement: "Driving workforce development by automating key HR workflows and building analytics dashboards that improved decision-making efficiency by 40%.",
     isCurrent: true,
-    companyInitials: "FN"
+    logoUrl: "/lovable-uploads/d40ea9b9-3717-4f29-a72b-7e0a169ca268.png"
   },
   {
     dateRange: "Aug 2024 – Dec 2024",
     company: "Aramco",
     title: "HR Intern",
     achievement: "Supported onboarding and training processes for 100+ employees at Juymah site, streamlining orientation procedures and reducing time-to-productivity by 25%.",
-    companyInitials: "AR"
+    logoUrl: "/lovable-uploads/1b2fa2fb-689d-4d66-8047-64ed538b0780.png"
   }
 ];
 
 const Timeline = () => {
   return (
-    <section className="py-20 bg-white px-4">
+    <section id="timeline" className="py-20 bg-white px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">Experience</h2>
         <div className="relative">
@@ -41,8 +41,12 @@ const Timeline = () => {
             <div key={index} className="relative flex items-start mb-12 last:mb-0 group hover:bg-linkedin-light-gray p-4 rounded-xl transition-all duration-300">
               {/* Company Avatar */}
               <div className="relative z-10 flex-shrink-0 mr-6">
-                <div className="w-12 h-12 bg-linkedin-blue text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                  {item.companyInitials}
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-200 overflow-hidden">
+                  <img 
+                    src={item.logoUrl} 
+                    alt={`${item.company} logo`}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
                 {/* Timeline dot */}
                 <div className={`absolute -right-1 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border-4 border-white ${

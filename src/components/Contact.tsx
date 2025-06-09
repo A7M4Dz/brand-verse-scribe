@@ -7,28 +7,28 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/yourprofile',
-      href: 'https://linkedin.com/in/yourprofile',
+      value: '/in/ahmedalotaebe',
+      href: 'https://www.linkedin.com/in/ahmedalotaebe/',
       isLinkedIn: true
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@yourname.com',
-      href: 'mailto:hello@yourname.com',
+      value: 'ahmed@example.com',
+      href: 'mailto:ahmed@example.com',
       isLinkedIn: false
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+966 XXX XXX XXXX',
+      href: 'tel:+966XXXXXXXXX',
       isLinkedIn: false
     }
   ];
 
   return (
-    <section className="py-20 bg-white px-4">
+    <section id="contact" className="py-20 bg-white px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-slate-900 mb-8">Let's Connect</h2>
         <p className="text-xl text-linkedin-gray mb-12 max-w-2xl mx-auto font-medium">
@@ -42,6 +42,8 @@ const Contact = () => {
               <a
                 key={index}
                 href={method.href}
+                target={method.isLinkedIn ? "_blank" : undefined}
+                rel={method.isLinkedIn ? "noopener noreferrer" : undefined}
                 className={`group bg-white border-2 border-gray-200 rounded-xl p-8 transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
                   method.isLinkedIn 
                     ? 'hover:bg-linkedin-blue hover:border-linkedin-blue' 
