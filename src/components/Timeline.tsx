@@ -2,71 +2,71 @@
 import React from 'react';
 
 interface TimelineItem {
-  year: string;
+  dateRange: string;
   company: string;
   title: string;
   achievement: string;
   isCurrent?: boolean;
+  companyInitials: string;
 }
 
 const timelineData: TimelineItem[] = [
   {
-    year: "2022",
-    company: "TechCorp Inc.",
-    title: "Senior Product Designer",
-    achievement: "Led design transformation resulting in 40% increase in user engagement across 3 product lines.",
-    isCurrent: true
+    dateRange: "Jan 2024 – Present",
+    company: "Flynas",
+    title: "Talent Development Officer",
+    achievement: "Driving workforce development by automating key HR workflows and building analytics dashboards that improved decision-making efficiency by 40%.",
+    isCurrent: true,
+    companyInitials: "FN"
   },
   {
-    year: "2020",
-    company: "InnovateLabs",
-    title: "Product Designer",
-    achievement: "Redesigned core platform reducing user onboarding time by 60% and improving retention by 25%."
-  },
-  {
-    year: "2018",
-    company: "StartupX",
-    title: "UX/UI Designer",
-    achievement: "Built design system from scratch supporting 5 products and establishing company design standards."
-  },
-  {
-    year: "2016",
-    company: "DesignStudio",
-    title: "Junior Designer",
-    achievement: "Contributed to 15+ client projects including award-winning mobile app with 2M+ downloads."
+    dateRange: "Aug 2024 – Dec 2024",
+    company: "Aramco",
+    title: "HR Intern",
+    achievement: "Supported onboarding and training processes for 100+ employees at Juymah site, streamlining orientation procedures and reducing time-to-productivity by 25%.",
+    companyInitials: "AR"
   }
 ];
 
 const Timeline = () => {
   return (
-    <section className="py-20 bg-slate-50 px-4">
+    <section className="py-20 bg-white px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-slate-800 mb-12 text-center">Career Journey</h2>
+        <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">Experience</h2>
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-300"></div>
+          <div className="absolute left-20 top-0 bottom-0 w-0.5 bg-linkedin-blue opacity-30"></div>
           
           {timelineData.map((item, index) => (
-            <div key={index} className="relative flex items-start mb-12 last:mb-0">
-              {/* Timeline dot */}
-              <div className="relative z-10 flex-shrink-0">
-                <div className={`w-4 h-4 rounded-full border-4 border-white ${
+            <div key={index} className="relative flex items-start mb-12 last:mb-0 group hover:bg-linkedin-light-gray p-4 rounded-xl transition-all duration-300">
+              {/* Company Avatar */}
+              <div className="relative z-10 flex-shrink-0 mr-6">
+                <div className="w-12 h-12 bg-linkedin-blue text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                  {item.companyInitials}
+                </div>
+                {/* Timeline dot */}
+                <div className={`absolute -right-1 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border-4 border-white ${
                   item.isCurrent 
-                    ? 'bg-emerald-600 animate-pulse shadow-lg shadow-emerald-600/50' 
-                    : 'bg-slate-400'
+                    ? 'bg-linkedin-blue animate-pulse-blue shadow-lg' 
+                    : 'bg-gray-400'
                 }`}></div>
               </div>
               
               {/* Content */}
-              <div className="ml-8 bg-white rounded-lg p-6 shadow-sm border border-slate-200 flex-grow">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-slate-800">
-                    {item.title}
-                  </h3>
-                  <span className="text-emerald-600 font-medium">{item.year}</span>
+              <div className="flex-grow">
+                {/* Date range */}
+                <div className="text-sm font-medium text-linkedin-gray mb-2">
+                  {item.dateRange}
                 </div>
-                <p className="text-lg text-slate-600 mb-2 font-medium">{item.company}</p>
-                <p className="text-slate-700 leading-relaxed">{item.achievement}</p>
+                
+                {/* Title and Company */}
+                <h3 className="text-xl font-bold text-slate-900 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-lg text-linkedin-blue font-semibold mb-3">{item.company}</p>
+                
+                {/* Achievement */}
+                <p className="text-linkedin-gray leading-relaxed">{item.achievement}</p>
               </div>
             </div>
           ))}
