@@ -35,21 +35,22 @@ const Timeline = () => {
         <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">Experience</h2>
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-20 top-0 bottom-0 w-0.5 bg-linkedin-blue opacity-30"></div>
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linkedin-blue opacity-30"></div>
           
           {timelineData.map((item, index) => (
             <div key={index} className="relative flex items-start mb-12 last:mb-0 group hover:bg-linkedin-light-gray p-4 rounded-xl transition-all duration-300">
               {/* Company Avatar */}
               <div className="relative z-10 flex-shrink-0 mr-6">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-200 overflow-hidden">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md border-4 border-white overflow-hidden transition-transform duration-300 group-hover:scale-110">
                   <img 
                     src={item.logoUrl} 
                     alt={`${item.company} logo`}
-                    className="w-10 h-10 object-contain"
+                    className="w-8 h-8 object-contain"
+                    srcSet={`${item.logoUrl} 2x`}
                   />
                 </div>
                 {/* Timeline dot */}
-                <div className={`absolute -right-1 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border-4 border-white ${
+                <div className={`absolute -left-1 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border-4 border-white ${
                   item.isCurrent 
                     ? 'bg-linkedin-blue animate-pulse-blue shadow-lg' 
                     : 'bg-gray-400'
