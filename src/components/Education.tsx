@@ -82,43 +82,64 @@ const Education = () => {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200/50 hover:border-linkedin-blue/30 hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-1 cursor-pointer">
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+                  <div className="bg-white/95 backdrop-blur-sm hover:bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-slate-200/60 hover:border-linkedin-blue/40 hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-2 cursor-pointer">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
                       <div className="relative flex-shrink-0">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-lg border-4 border-white overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:border-linkedin-blue/20">
-                          <img 
-                            src={item.logoUrl} 
-                            alt={`${item.institution} logo`}
-                            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                        {/* External link indicator */}
-                        <div className="absolute -top-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 bg-linkedin-blue rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
-                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                        <div className="relative">
+                          {/* Animated background ring */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-linkedin-blue/20 group-hover:to-blue-600/20 transition-all duration-700 group-hover:scale-125"></div>
+                          
+                          {/* Logo container */}
+                          <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/80 overflow-hidden transition-all duration-700 group-hover:scale-110 group-hover:shadow-3xl group-hover:border-linkedin-blue/30 group-hover:-rotate-3">
+                            <img 
+                              src={item.logoUrl} 
+                              alt={`${item.institution} logo`}
+                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-18 lg:h-18 object-contain transition-all duration-700 group-hover:scale-110"
+                            />
+                            
+                            {/* Hover glow effect */}
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-linkedin-blue/0 to-linkedin-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                          </div>
+                          
+                          {/* External link indicator */}
+                          <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-linkedin-blue to-blue-600 rounded-full flex items-center justify-center shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100 group-hover:-rotate-12">
+                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          </div>
+                          
+                          {/* Floating particles */}
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                            <div className="absolute top-3 right-5 w-1 h-1 bg-linkedin-blue rounded-full animate-ping delay-200"></div>
+                            <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping delay-400"></div>
+                          </div>
                         </div>
                       </div>
+                      
                       <div className="flex-grow text-center sm:text-left">
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-3">
-                          <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 group-hover:text-linkedin-blue transition-colors duration-300">
-                            {item.degree}
-                          </h4>
-                          <span className="text-linkedin-blue font-bold text-base sm:text-lg bg-linkedin-blue/10 px-3 py-1 rounded-full group-hover:bg-linkedin-blue/20 transition-colors duration-300">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4 mb-4">
+                          <div className="space-y-2">
+                            <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 group-hover:text-linkedin-blue transition-all duration-500 transform group-hover:scale-105">
+                              {item.degree}
+                            </h4>
+                            <p className="text-linkedin-blue font-bold text-base sm:text-lg lg:text-xl group-hover:text-linkedin-blue-hover transition-all duration-500">
+                              {item.institution}
+                            </p>
+                            <p className="text-slate-600 text-sm sm:text-base lg:text-lg group-hover:text-slate-700 transition-colors duration-500">
+                              {item.field}
+                            </p>
+                          </div>
+                          <span className="text-linkedin-blue font-bold text-base sm:text-lg bg-gradient-to-r from-linkedin-blue/10 to-blue-600/10 px-4 py-2 rounded-2xl group-hover:from-linkedin-blue/20 group-hover:to-blue-600/20 transition-all duration-500 transform group-hover:scale-105">
                             {item.year}
                           </span>
                         </div>
-                        <p className="text-linkedin-blue font-bold text-base sm:text-lg lg:text-xl mb-2 group-hover:text-linkedin-blue-hover transition-colors duration-300">
-                          {item.institution}
-                        </p>
-                        <p className="text-slate-600 text-sm sm:text-base lg:text-lg group-hover:text-slate-700 transition-colors duration-300">
-                          {item.field}
-                        </p>
                         
-                        {/* Hover effect indicator */}
-                        <div className="mt-3 sm:mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
-                          <span className="text-xs sm:text-sm text-linkedin-blue font-medium flex items-center justify-center sm:justify-start gap-2">
-                            Visit University Website
-                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                          </span>
+                        {/* Enhanced hover effect indicator */}
+                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                          <div className="flex items-center justify-center sm:justify-start gap-2 bg-gradient-to-r from-linkedin-blue/10 to-blue-600/10 backdrop-blur-sm rounded-full px-3 py-2 border border-linkedin-blue/20 w-fit">
+                            <span className="text-xs sm:text-sm text-linkedin-blue font-medium">
+                              Visit University Website
+                            </span>
+                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-linkedin-blue animate-bounce" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -133,38 +154,54 @@ const Education = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 text-center lg:text-left">
               Certifications
             </h3>
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-4 sm:space-y-5">
               {certificationData.map((item, index) => (
-                <div key={index} className={`bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-1 ${
+                <div key={index} className={`group bg-white/95 backdrop-blur-sm rounded-3xl p-5 sm:p-6 lg:p-8 shadow-xl border hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] hover:-translate-y-1 ${
                   item.status === 'under_process' 
-                    ? 'border-linkedin-blue bg-gradient-to-r from-linkedin-blue/10 to-blue-50/50 hover:from-linkedin-blue/15 hover:to-blue-50/70' 
-                    : 'border-slate-200/50 hover:border-linkedin-blue/30 hover:bg-white'
+                    ? 'border-linkedin-blue/40 bg-gradient-to-r from-linkedin-blue/15 to-blue-50/60 hover:from-linkedin-blue/25 hover:to-blue-50/80' 
+                    : 'border-slate-200/60 hover:border-linkedin-blue/40 hover:bg-white'
                 }`}>
-                  <div className="flex items-start gap-3 sm:gap-4 lg:gap-6">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-sm flex-shrink-0 transition-all duration-300 ${
-                      item.status === 'under_process'
-                        ? 'bg-gradient-to-br from-linkedin-blue to-blue-600 text-white shadow-lg scale-105'
-                        : 'bg-linkedin-blue text-white hover:scale-105'
-                    }`}>
-                      {item.issuer.substring(0, 2).toUpperCase()}
-                    </div>
-                    <div className="flex-grow min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-2 mb-2">
-                        <h4 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-tight">
-                          {item.name}
-                          {item.status === 'under_process' && (
-                            <span className="ml-2 inline-block px-2 sm:px-3 py-1 bg-gradient-to-r from-linkedin-blue to-blue-600 text-white text-xs font-bold rounded-full shadow-md animate-pulse-blue">
-                              In Progress
-                            </span>
-                          )}
-                        </h4>
-                        <span className={`font-bold text-xs sm:text-sm lg:text-base flex-shrink-0 ${
-                          item.status === 'under_process' ? 'text-linkedin-blue' : 'text-linkedin-blue'
-                        }`}>{item.date}</span>
+                  <div className="flex items-start gap-4 sm:gap-5 lg:gap-6">
+                    <div className="relative">
+                      {/* Animated logo container */}
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center font-bold text-sm sm:text-base flex-shrink-0 transition-all duration-700 transform group-hover:scale-110 group-hover:rotate-6 ${
+                        item.status === 'under_process'
+                          ? 'bg-gradient-to-br from-linkedin-blue to-blue-600 text-white shadow-xl animate-pulse-blue'
+                          : 'bg-gradient-to-br from-linkedin-blue to-blue-500 text-white shadow-lg group-hover:shadow-xl'
+                      }`}>
+                        {item.issuer.substring(0, 2).toUpperCase()}
                       </div>
-                      <p className="text-slate-600 font-medium text-sm sm:text-base lg:text-lg">
-                        {item.issuer}
-                      </p>
+                      
+                      {/* Floating particles for in-progress items */}
+                      {item.status === 'under_process' && (
+                        <div className="absolute inset-0">
+                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-linkedin-blue rounded-full animate-ping"></div>
+                          <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-blue-400 rounded-full animate-ping delay-500"></div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="flex-grow min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-3 mb-3">
+                        <div className="space-y-1">
+                          <h4 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-tight group-hover:text-linkedin-blue transition-colors duration-500">
+                            {item.name}
+                            {item.status === 'under_process' && (
+                              <span className="ml-3 inline-block px-3 py-1 bg-gradient-to-r from-linkedin-blue to-blue-600 text-white text-xs font-bold rounded-full shadow-md animate-pulse-blue transform scale-95 group-hover:scale-100 transition-transform duration-300">
+                                In Progress
+                              </span>
+                            )}
+                          </h4>
+                          <p className="text-slate-600 font-medium text-sm sm:text-base lg:text-lg group-hover:text-slate-700 transition-colors duration-500">
+                            {item.issuer}
+                          </p>
+                        </div>
+                        <span className={`font-bold text-sm sm:text-base lg:text-lg flex-shrink-0 transition-all duration-500 transform group-hover:scale-105 ${
+                          item.status === 'under_process' ? 'text-linkedin-blue' : 'text-linkedin-blue group-hover:text-linkedin-blue-hover'
+                        }`}>
+                          {item.date}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
