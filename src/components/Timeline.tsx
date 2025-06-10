@@ -10,6 +10,8 @@ interface TimelineItem {
   isCurrent?: boolean;
   logoUrl: string;
   companyUrl: string;
+  metrics?: string;
+  skills?: string[];
 }
 
 const timelineData: TimelineItem[] = [
@@ -18,6 +20,8 @@ const timelineData: TimelineItem[] = [
     company: "Flynas",
     title: "Talent Development Officer",
     achievement: "Driving workforce development by automating key HR workflows and building analytics dashboards that improved decision-making efficiency by 40%.",
+    metrics: "40% efficiency improvement",
+    skills: ["HR Analytics", "Process Automation", "Talent Development"],
     isCurrent: true,
     logoUrl: "/lovable-uploads/d40ea9b9-3717-4f29-a72b-7e0a169ca268.png",
     companyUrl: "https://www.flynas.com/en"
@@ -27,6 +31,8 @@ const timelineData: TimelineItem[] = [
     company: "Aramco",
     title: "HR Intern",
     achievement: "Supported onboarding and training processes for 100+ employees at Juymah site, streamlining orientation procedures and reducing time-to-productivity by 25%.",
+    metrics: "100+ employees, 25% productivity boost",
+    skills: ["Employee Onboarding", "Training Programs", "Process Optimization"],
     logoUrl: "/lovable-uploads/1b2fa2fb-689d-4d66-8047-64ed538b0780.png",
     companyUrl: "https://www.aramco.com/en"
   }
@@ -34,95 +40,125 @@ const timelineData: TimelineItem[] = [
 
 const Timeline = () => {
   return (
-    <section id="timeline" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-slate-50 to-linkedin-light-gray px-3 sm:px-4 lg:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-6 tracking-tight">
-            Professional Experience
+    <section id="timeline" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-white via-slate-50 to-linkedin-light-gray px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background pattern for professionalism */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-32 h-32 border border-linkedin-blue rounded-full"></div>
+        <div className="absolute bottom-40 right-32 w-24 h-24 border border-linkedin-blue/60 rounded-lg rotate-45"></div>
+        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-linkedin-blue/10 rounded-full"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative">
+        <div className="text-center mb-16 sm:mb-20">
+          <div className="inline-block mb-6">
+            <span className="bg-gradient-to-r from-linkedin-blue to-blue-600 bg-clip-text text-transparent font-bold text-lg tracking-wide uppercase">
+              Professional Journey
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+            Proven <span className="bg-gradient-to-r from-linkedin-blue to-blue-600 bg-clip-text text-transparent">Track Record</span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-linkedin-gray max-w-3xl mx-auto leading-relaxed">
-            Building expertise across leading organizations in the Kingdom of Saudi Arabia
+          <p className="text-lg sm:text-xl lg:text-2xl text-linkedin-gray max-w-4xl mx-auto leading-relaxed">
+            Delivering measurable results across leading organizations in Saudi Arabia's dynamic business landscape
           </p>
+          
+          {/* Professional metrics highlight */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-slate-200/60">
+              <div className="text-3xl font-bold text-linkedin-blue mb-2">40%</div>
+              <div className="text-slate-600 font-medium">Efficiency Improvement</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-slate-200/60">
+              <div className="text-3xl font-bold text-linkedin-blue mb-2">100+</div>
+              <div className="text-slate-600 font-medium">Employees Impacted</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-slate-200/60">
+              <div className="text-3xl font-bold text-linkedin-blue mb-2">25%</div>
+              <div className="text-slate-600 font-medium">Productivity Boost</div>
+            </div>
+          </div>
         </div>
         
-        <div className="relative max-w-4xl mx-auto">
-          {/* Modern timeline line */}
-          <div className="hidden sm:block absolute left-8 lg:left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-linkedin-blue via-linkedin-blue/40 to-transparent rounded-full shadow-sm"></div>
+        <div className="relative max-w-5xl mx-auto">
+          {/* Professional timeline line with 3s pulse */}
+          <div className="hidden sm:block absolute left-10 lg:left-12 top-0 bottom-0 w-1 bg-gradient-to-b from-linkedin-blue via-linkedin-blue/40 to-transparent rounded-full shadow-sm"></div>
           
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-8 sm:space-y-12">
             {timelineData.map((item, index) => (
               <div 
                 key={index} 
                 className="relative group"
               >
-                {/* Timeline connector with less frequent pulse */}
-                <div className={`hidden sm:block absolute left-6 lg:left-8 top-10 w-5 h-5 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
+                {/* Timeline connector with 3s pulse frequency */}
+                <div className={`hidden sm:block absolute left-8 lg:left-10 top-12 w-6 h-6 rounded-full border-4 border-white shadow-xl transition-all duration-700 ${
                   item.isCurrent 
-                    ? 'bg-linkedin-blue animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-110' 
+                    ? 'bg-linkedin-blue animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-110 ring-4 ring-linkedin-blue/20' 
                     : 'bg-slate-400 group-hover:bg-linkedin-blue group-hover:scale-110'
                 }`}></div>
 
-                {/* Experience card */}
+                {/* Enhanced experience card with professional focus */}
                 <a 
                   href={item.companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block ml-0 sm:ml-20 lg:ml-24"
+                  className="block ml-0 sm:ml-24 lg:ml-28"
                 >
-                  <div className="bg-white/95 backdrop-blur-sm hover:bg-white border border-slate-200/60 hover:border-linkedin-blue/40 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-2 cursor-pointer group">
-                    {/* Header section */}
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 mb-6 sm:mb-8">
-                      {/* Company logo */}
-                      <div className="relative flex-shrink-0 mx-auto sm:mx-0">
+                  <div className="bg-white/95 backdrop-blur-sm hover:bg-white border border-slate-200/60 hover:border-linkedin-blue/40 rounded-3xl p-8 sm:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:scale-[1.02] hover:-translate-y-3 cursor-pointer group relative overflow-hidden">
+                    {/* Subtle background gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-linkedin-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    {/* Header section with enhanced layout */}
+                    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 mb-8 relative z-10">
+                      {/* Enhanced company logo */}
+                      <div className="relative flex-shrink-0 mx-auto lg:mx-0">
                         <div className="relative">
-                          {/* Animated background ring with less frequent pulse */}
+                          {/* Professional background ring with 3s pulse */}
                           <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
                             item.isCurrent 
-                              ? 'bg-gradient-to-br from-linkedin-blue/20 to-blue-600/20 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-125' 
+                              ? 'bg-gradient-to-br from-linkedin-blue/20 to-blue-600/20 animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-125' 
                               : 'bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-linkedin-blue/20 group-hover:to-blue-600/20 group-hover:scale-125'
                           }`}></div>
                           
-                          {/* Logo container */}
-                          <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/80 overflow-hidden transition-all duration-700 group-hover:scale-110 group-hover:shadow-3xl group-hover:border-linkedin-blue/30 group-hover:rotate-3">
+                          {/* Logo container with premium styling */}
+                          <div className="relative w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/90 overflow-hidden transition-all duration-700 group-hover:scale-110 group-hover:shadow-3xl group-hover:border-linkedin-blue/30 group-hover:rotate-2">
                             <img 
                               src={item.logoUrl} 
                               alt={`${item.company} logo`}
-                              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-18 lg:h-18 object-contain transition-all duration-700 group-hover:scale-110"
+                              className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain transition-all duration-700 group-hover:scale-110"
                             />
                             
-                            {/* Hover glow effect */}
+                            {/* Premium hover glow */}
                             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-linkedin-blue/0 to-linkedin-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                           </div>
                           
-                          {/* External link indicator with animation */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-linkedin-blue to-blue-600 rounded-full flex items-center justify-center shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100 group-hover:rotate-12">
-                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                          </div>
-                          
-                          {/* Floating particles animation with longer delays */}
-                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                            <div className="absolute top-2 right-4 w-1 h-1 bg-linkedin-blue rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-100"></div>
-                            <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-300"></div>
-                            <div className="absolute top-6 left-2 w-0.5 h-0.5 bg-linkedin-blue rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-500"></div>
+                          {/* Professional external link indicator */}
+                          <div className="absolute -top-3 -right-3 w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-linkedin-blue to-blue-600 rounded-full flex items-center justify-center shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100 group-hover:rotate-12">
+                            <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </div>
                         </div>
                       </div>
                       
-                      {/* Company info */}
-                      <div className="flex-grow text-center sm:text-left">
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4 mb-4">
-                          <div className="space-y-2">
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-linkedin-blue transition-colors duration-500">
+                      {/* Enhanced company info with professional styling */}
+                      <div className="flex-grow text-center lg:text-left">
+                        <div className="space-y-4 mb-6">
+                          <div className="space-y-3">
+                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight group-hover:text-linkedin-blue transition-colors duration-500">
                               {item.title}
                             </h3>
-                            <p className="text-lg sm:text-xl lg:text-2xl text-linkedin-blue font-bold group-hover:text-linkedin-blue-hover transition-all duration-500 transform group-hover:scale-105">
+                            <p className="text-xl sm:text-2xl lg:text-3xl text-linkedin-blue font-bold group-hover:text-linkedin-blue-hover transition-all duration-500 transform group-hover:scale-105">
                               {item.company}
                             </p>
+                            {/* Metrics highlight for hiring managers */}
+                            <div className="inline-block bg-gradient-to-r from-linkedin-blue/10 to-blue-600/10 px-4 py-2 rounded-full border border-linkedin-blue/20">
+                              <span className="text-linkedin-blue font-semibold text-sm">
+                                {item.metrics}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex-shrink-0">
-                            <span className={`inline-block text-sm sm:text-base font-bold px-4 sm:px-5 py-2 sm:py-3 rounded-2xl transition-all duration-500 transform group-hover:scale-105 ${
+                          <div className="flex justify-center lg:justify-start">
+                            <span className={`inline-block text-base sm:text-lg font-bold px-6 py-3 rounded-2xl transition-all duration-500 transform group-hover:scale-105 shadow-lg ${
                               item.isCurrent 
-                                ? 'bg-gradient-to-r from-linkedin-blue to-blue-600 text-white shadow-xl animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]' 
+                                ? 'bg-gradient-to-r from-linkedin-blue to-blue-600 text-white shadow-xl animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite]' 
                                 : 'bg-gradient-to-r from-slate-100 to-slate-200 text-slate-700 group-hover:from-linkedin-blue group-hover:to-blue-600 group-hover:text-white group-hover:shadow-xl'
                             }`}>
                               {item.dateRange}
@@ -132,20 +168,32 @@ const Timeline = () => {
                       </div>
                     </div>
                     
-                    {/* Achievement */}
-                    <div className="px-2 sm:px-0">
-                      <p className="text-slate-600 leading-relaxed text-base sm:text-lg lg:text-xl group-hover:text-slate-700 transition-all duration-500 transform group-hover:translate-x-1">
+                    {/* Enhanced achievement section */}
+                    <div className="relative z-10 mb-8">
+                      <p className="text-slate-600 leading-relaxed text-lg sm:text-xl lg:text-2xl group-hover:text-slate-700 transition-all duration-500 transform group-hover:translate-x-2 mb-6">
                         {item.achievement}
                       </p>
+                      
+                      {/* Skills showcase for hiring managers */}
+                      <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        {item.skills?.map((skill, skillIndex) => (
+                          <span 
+                            key={skillIndex}
+                            className="bg-gradient-to-r from-linkedin-blue/10 to-blue-600/10 text-linkedin-blue px-4 py-2 rounded-full text-sm font-medium border border-linkedin-blue/20 group-hover:from-linkedin-blue/20 group-hover:to-blue-600/20 transition-all duration-500 transform group-hover:scale-105"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Enhanced hover effect indicator */}
-                    <div className="mt-6 sm:mt-8 flex items-center justify-center sm:justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-3 group-hover:translate-y-0">
-                      <div className="flex items-center gap-3 bg-gradient-to-r from-linkedin-blue/10 to-blue-600/10 backdrop-blur-sm rounded-full px-4 py-2 border border-linkedin-blue/20">
-                        <span className="text-sm sm:text-base text-linkedin-blue font-semibold">
-                          Visit Company Website
+                    {/* Premium hover effect indicator */}
+                    <div className="relative z-10 flex items-center justify-center lg:justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      <div className="flex items-center gap-4 bg-gradient-to-r from-linkedin-blue/15 to-blue-600/15 backdrop-blur-sm rounded-full px-6 py-3 border border-linkedin-blue/30 shadow-lg">
+                        <span className="text-linkedin-blue font-semibold text-lg">
+                          View Company Profile
                         </span>
-                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-linkedin-blue animate-bounce" />
+                        <ExternalLink className="w-5 h-5 text-linkedin-blue animate-bounce" />
                       </div>
                     </div>
                   </div>
