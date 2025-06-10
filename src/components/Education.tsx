@@ -106,10 +106,10 @@ const Education = () => {
                             <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           </div>
                           
-                          {/* Floating particles */}
+                          {/* Floating particles with longer delays */}
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                            <div className="absolute top-3 right-5 w-1 h-1 bg-linkedin-blue rounded-full animate-ping delay-200"></div>
-                            <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping delay-400"></div>
+                            <div className="absolute top-3 right-5 w-1 h-1 bg-linkedin-blue rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-200"></div>
+                            <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-400"></div>
                           </div>
                         </div>
                       </div>
@@ -163,20 +163,20 @@ const Education = () => {
                 }`}>
                   <div className="flex items-start gap-4 sm:gap-5 lg:gap-6">
                     <div className="relative">
-                      {/* Animated logo container */}
+                      {/* Animated logo container with less frequent pulse */}
                       <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center font-bold text-sm sm:text-base flex-shrink-0 transition-all duration-700 transform group-hover:scale-110 group-hover:rotate-6 ${
                         item.status === 'under_process'
-                          ? 'bg-gradient-to-br from-linkedin-blue to-blue-600 text-white shadow-xl animate-pulse-blue'
+                          ? 'bg-gradient-to-br from-linkedin-blue to-blue-600 text-white shadow-xl animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]'
                           : 'bg-gradient-to-br from-linkedin-blue to-blue-500 text-white shadow-lg group-hover:shadow-xl'
                       }`}>
                         {item.issuer.substring(0, 2).toUpperCase()}
                       </div>
                       
-                      {/* Floating particles for in-progress items */}
+                      {/* Floating particles for in-progress items with longer delays */}
                       {item.status === 'under_process' && (
                         <div className="absolute inset-0">
-                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-linkedin-blue rounded-full animate-ping"></div>
-                          <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-blue-400 rounded-full animate-ping delay-500"></div>
+                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-linkedin-blue rounded-full animate-[ping_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+                          <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-blue-400 rounded-full animate-[ping_4s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-1000"></div>
                         </div>
                       )}
                     </div>
@@ -187,7 +187,7 @@ const Education = () => {
                           <h4 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-tight group-hover:text-linkedin-blue transition-colors duration-500">
                             {item.name}
                             {item.status === 'under_process' && (
-                              <span className="ml-3 inline-block px-3 py-1 bg-gradient-to-r from-linkedin-blue to-blue-600 text-white text-xs font-bold rounded-full shadow-md animate-pulse-blue transform scale-95 group-hover:scale-100 transition-transform duration-300">
+                              <span className="ml-3 inline-block px-3 py-1 bg-gradient-to-r from-linkedin-blue to-blue-600 text-white text-xs font-bold rounded-full shadow-md animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] transform scale-95 group-hover:scale-100 transition-transform duration-300">
                                 In Progress
                               </span>
                             )}

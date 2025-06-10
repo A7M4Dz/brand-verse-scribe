@@ -55,10 +55,10 @@ const Timeline = () => {
                 key={index} 
                 className="relative group"
               >
-                {/* Timeline connector */}
+                {/* Timeline connector with less frequent pulse */}
                 <div className={`hidden sm:block absolute left-6 lg:left-8 top-10 w-5 h-5 rounded-full border-4 border-white shadow-lg transition-all duration-500 ${
                   item.isCurrent 
-                    ? 'bg-linkedin-blue animate-pulse-blue scale-110' 
+                    ? 'bg-linkedin-blue animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-110' 
                     : 'bg-slate-400 group-hover:bg-linkedin-blue group-hover:scale-110'
                 }`}></div>
 
@@ -75,10 +75,10 @@ const Timeline = () => {
                       {/* Company logo */}
                       <div className="relative flex-shrink-0 mx-auto sm:mx-0">
                         <div className="relative">
-                          {/* Animated background ring */}
+                          {/* Animated background ring with less frequent pulse */}
                           <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
                             item.isCurrent 
-                              ? 'bg-gradient-to-br from-linkedin-blue/20 to-blue-600/20 animate-pulse-blue scale-125' 
+                              ? 'bg-gradient-to-br from-linkedin-blue/20 to-blue-600/20 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] scale-125' 
                               : 'bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-linkedin-blue/20 group-hover:to-blue-600/20 group-hover:scale-125'
                           }`}></div>
                           
@@ -99,11 +99,11 @@ const Timeline = () => {
                             <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           </div>
                           
-                          {/* Floating particles animation */}
+                          {/* Floating particles animation with longer delays */}
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                            <div className="absolute top-2 right-4 w-1 h-1 bg-linkedin-blue rounded-full animate-ping delay-100"></div>
-                            <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping delay-300"></div>
-                            <div className="absolute top-6 left-2 w-0.5 h-0.5 bg-linkedin-blue rounded-full animate-ping delay-500"></div>
+                            <div className="absolute top-2 right-4 w-1 h-1 bg-linkedin-blue rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-100"></div>
+                            <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-300"></div>
+                            <div className="absolute top-6 left-2 w-0.5 h-0.5 bg-linkedin-blue rounded-full animate-[ping_3s_cubic-bezier(0.4,0,0.6,1)_infinite] delay-500"></div>
                           </div>
                         </div>
                       </div>
@@ -122,7 +122,7 @@ const Timeline = () => {
                           <div className="flex-shrink-0">
                             <span className={`inline-block text-sm sm:text-base font-bold px-4 sm:px-5 py-2 sm:py-3 rounded-2xl transition-all duration-500 transform group-hover:scale-105 ${
                               item.isCurrent 
-                                ? 'bg-gradient-to-r from-linkedin-blue to-blue-600 text-white shadow-xl animate-pulse-blue' 
+                                ? 'bg-gradient-to-r from-linkedin-blue to-blue-600 text-white shadow-xl animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]' 
                                 : 'bg-gradient-to-r from-slate-100 to-slate-200 text-slate-700 group-hover:from-linkedin-blue group-hover:to-blue-600 group-hover:text-white group-hover:shadow-xl'
                             }`}>
                               {item.dateRange}
